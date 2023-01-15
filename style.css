@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+body{
+    background: #262626;
+}
+.back{
+    display: flex;
+}
+.left{
+    width: 285px;
+    height: 1080px;
+    border-right: 1px solid #dedede;
+}
+.search{
+    
+    width: 1637px;
+    height: 58px;
+    left: 283px;
+    background: #4F4F4F;
+}
+.search-bar{
+    position: absolute;
+    top: 20px;
+    left: 16%;
+    opacity: 1;
+}
+button{
+   overflow: hidden;
+   background-color: transparent;
+   background-repeat: no-repeat;
+   border: none;
+   cursor: pointer;
+}
+#chat-reminder-buttons {
+    display: none;
+  }
+#hover-button{
+    opacity: 1;
+    position: absolute;
+    top: 109.5%;
+    left: 95%;
+}
+
+#chat-button{
+    opacity: 1;
+    position: absolute;
+    top: 110%;
+    left: 90%;
+    transition: 0.7s;
+    
+}
+#reminder-button{
+    position: absolute;
+    opacity: 1;
+    position: absolute;
+    top: 110%;
+    left: 85%;
+    
+}
+.box{
+    width: 734px;
+    height: 737px;
+    top: 28%;
+    left: 60%;
+    background: #FFFFFF;
+    opacity: 1;
+    position: absolute;
+    display: none;
+}
+.box-search{
+    position: inherit;
+    align-items: center;
+    width: 666px;
+    height: 32px;
+    top: 3%;
+    left: 5%;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 490px;
+   border: 1px solid #828282;
+}
+.box-search::placeholder{
+    position: absolute;
+    left: 7%;
+}
+.box-logo{
+    top: 19%;
+    left: 88%;
+    position: absolute;
+    color: #020000;
+    filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0));
+}
+.text{
+    position: absolute;
+    top: 19%;
+    left: 10%;
+}
+.loading{
+    position: absolute;
+    top: 60%;
+    left: 46%;
+}
+
+.loader {
+    border: 10px solid #F8F8F8; 
+    border-top: 10px solid #C4C4C4; 
+    border-radius: 50%;
+    width: 45.52px;
+    height: 45.52px;
+    animation: spin 2s linear infinite;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .modal {
+    display: none; 
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 60%;
+    top: 15%;
+    width: 734px;
+    height: 737px;
+    overflow: hidden; /* scroll hidden */
+     
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #FFFFFF;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 734px;
+    height: 737px;
+    top: 28%;
+    left: 90%;
+    opacity: 1;
+    
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    /* display: none; */
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

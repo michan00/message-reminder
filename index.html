@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>message</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="back">
+    <div class="left"></div>
+    <div class="search"></div>
+    <div class="search-bar"><img src="aset/Group 1609.png" alt="" width="16px" height="16px"></div>
+    <span id="hover-button">
+        <img src="aset/Group 1658.png" alt="" width="68px" height="68px" />
+      </span>
+      <div id="chat-reminder-buttons">
+        <button id="chat-button">
+          <img src="aset/Group 1899.png" alt="" width="60px" height="60px" />
+        </button>
+        <button id="reminder-button">
+          <img src="aset/Group 1900.png"alt="" width="60px" height="60px"/>
+        </button>
+</div>
+
+<div id="chat-modal" class="modal">
+    <div class="modal-content">
+        <input type="search" name="search" placeholder="Search" class="box-search">
+    <div class="box-logo"><img src="/aset/Group 1609.png" alt="" width="12px" height="12px"></div>
+    <div class="loader"></div>
+      <span class="close">&times;</span>
+      <div class="loader"></div>
+      <div class="loading">Loading Chats ...</div>
+      <div id="chat-box"></div>
+    </div>
+    <div class="reminder">
+
+    </div>
+  </div>
+    <script>
+ const hoverButton = document.getElementById("hover-button");
+  const chatReminderButtons = document.getElementById("chat-reminder-buttons");
+  const chatButton = document.getElementById("chat-button");
+  const reminderButton = document.getElementById("reminder-button");
+  const chatModal = document.getElementById("chat-modal");
+  const closeModal = document.getElementsByClassName("close")[0];
+  let timerId;
+
+  hoverButton.addEventListener("mouseover", function () {
+    chatReminderButtons.style.display = "block";
+  });
+// adding timer on hover 5s
+  hoverButton.addEventListener("mouseout", function () {
+    clearTimeout(timerId);
+    timerId = setTimeout(function () {
+      chatReminderButtons.style.display = "none";
+    }, 5000);
+  });
+
+  chatReminderButtons.addEventListener("mouseover", function () {
+    clearTimeout(timerId);
+  });
+
+  chatReminderButtons.addEventListener("mouseout", function () {
+    timerId = setTimeout(function () {
+      chatReminderButtons.style.display = "none";
+    }, 5000);
+  });
+
+// clicking chat button to open the chat box
+  chatButton.addEventListener("click", function () {
+    chatModal.style.display = "block";
+  });
+
+  closeModal.addEventListener("click", function () {
+    chatModal.style.display = "none";
+  });
+
+  // Close modal when user clicks outside of it
+  window.addEventListener("click", function (event) {
+    if (event.target == chatModal) {
+      chatModal.style.display = "none";
+    }
+  });
+
+  reminderButton.addEventListener("click",function(){
+    chatModal.style.display = "block";
+  });
+
+  reminderButton.addEventListener("click", function () {
+    let reminderDate = prompt("Enter the reminder date (YYYY-MM-DD):");
+    reminderTime = prompt("Enter the reminder time (HH:mm):");
+    let reminderText = reminderTextInput.value;
+    if (reminderDate && reminderTime && reminderText) {
+      let reminderDateTime = new Date(reminderDate + "T" + reminderTime);
+      let currentDateTime = new Date();
+      let timeLeft = reminderDateTime - currentDateTime;
+      if (timeLeft > 0) {
+        reminderInterval = setTimeout(() => {
+          alert("Reminder: " + reminderText);
+        }, timeLeft);
+      } else {
+        alert(
+          "Invalid date or time. Please enter a valid date and time in the future."
+        );
+      }
+    }
+  });
+
+  const deleteReminderButton = document.getElementById(
+    "delete-reminder-button"
+  );
+  deleteReminderButton.addEventListener("click", function () {
+    clearTimeout(reminderInterval);
+    alert("Reminder deleted!");
+  });
+    </script>
+</body>
+</html>
